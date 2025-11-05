@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}MotorCare — Expert Two-Wheeler Service & Repair{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+  <div class="hero-image-container">
+    <img src="{{ url_for('static', filename='images/hero-bike.jpg') }}" alt="Motorcycle Repair" class="hero-image">
+  </div>
+  <div class="hero-text">
+    <h1>Keep Your Ride in Top Condition</h1>
+    <p>Professional two-wheeler repair & maintenance — quick, transparent, and reliable.</p>
+    <div class="hero-buttons">
+      <a href="{{ url_for('bookings.book_service') }}" class="btn-primary">Book a Service</a>
+      <a href="{{ url_for('services.list_services') }}" class="btn-secondary">View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-10 text-gray-900">Why Choose MotorCare?</h2>
+    <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-8">
+      <div class="p-6 rounded-xl shadow hover:shadow-lg transition bg-gray-50">
+        <img src="{{ url_for('static', filename='images/icon-trust.png') }}" alt="Trust Icon" class="w-12 mx-auto mb-4">
+        <h3 class="font-semibold text-lg mb-2">Trusted Mechanics</h3>
+        <p class="text-gray-600">Our certified experts deliver precision repair with transparency and honesty.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow hover:shadow-lg transition bg-gray-50">
+        <img src="{{ url_for('static', filename='images/icon-speed.png') }}" alt="Speed Icon" class="w-12 mx-auto mb-4">
+        <h3 class="font-semibold text-lg mb-2">Quick Turnaround</h3>
+        <p class="text-gray-600">Same-day delivery for most services so you never stay off-road for long.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow hover:shadow-lg transition bg-gray-50">
+        <img src="{{ url_for('static', filename='images/icon-price.png') }}" alt="Affordable Pricing" class="w-12 mx-auto mb-4">
+        <h3 class="font-semibold text-lg mb-2">Affordable Pricing</h3>
+        <p class="text-gray-600">No hidden charges — fair estimates upfront for complete peace of mind.</p>
+      </div>
+      <div class="p-6 rounded-xl shadow hover:shadow-lg transition bg-gray-50">
+        <img src="{{ url_for('static', filename='images/icon-support.png') }}" alt="Support Icon" class="w-12 mx-auto mb-4">
+        <h3 class="font-semibold text-lg mb-2">Customer Support</h3>
+        <p class="text-gray-600">We’re available on call or WhatsApp for all your service queries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED SERVICES -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Our Popular Services</h2>
+    <div class="grid gap-8 md:grid-cols-3 sm:grid-cols-2">
+      {% for s in services %}
+      <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
+        <img src="{{ s.image_url or url_for('static', filename='images/default-service.jpg') }}" alt="{{ s.name }}" class="w-20 h-20 mx-auto mb-4 rounded-full object-cover">
+        <h3 class="text-xl font-semibold mb-2">{{ s.name }}</h3>
+        <p class="text-gray-600 mb-3">{{ s.description or "Professional service by experts." }}</p>
+        <p class="font-bold text-blue-700 mb-4">₹{{ s.base_price or "—" }} • {{ s.duration_minutes or "—" }} mins</p>
+        <a href="{{ url_for('bookings.book_service') }}" class="btn-primary">Book Now</a>
+      </div>
+      {% else %}
+      <p class="col-span-full text-center text-gray-500">No services available at the moment.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-16 bg-blue-600 text-white text-center">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-10">What Our Customers Say</h2>
+    <div class="grid gap-8 md:grid-cols-3 sm:grid-cols-1">
+      {% for t in testimonials %}
+      <blockquote class="bg-white/10 p-6 rounded-2xl shadow-md">
+        <p class="italic mb-4">“{{ t.text }}”</p>
+        <footer class="font-semibold">{{ t.name }} ({{ t.rating }}★)</footer>
+      </blockquote>
+      {% else %}
+      <p class="col-span-full">Testimonials coming soon!</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-10 text-gray-900">Our Workshop Gallery</h2>
+    <div class="grid gap-6 md:grid-cols-4 sm:grid-cols-2">
+      {% for g in gallery %}
+      <div class="overflow-hidden rounded-xl shadow hover:scale-105 transform transition">
+        <img src="{{ g.image_url }}" alt="{{ g.title }}" class="w-full h-48 object-cover">
+      </div>
+      {% else %}
+      <p class="col-span-full text-gray-500">Gallery coming soon.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

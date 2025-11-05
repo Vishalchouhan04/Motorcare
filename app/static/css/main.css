@@ -1,0 +1,1041 @@
+/* =======================================================
+   MotorCare — Unified & Future-Proof Stylesheet (v2.1)
+   ======================================================= */
+
+/* ------------ GLOBAL RESET ------------ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #1f2937;
+  font-family: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #111827;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+html, body {
+  height: 100%;
+  background-color: #f9fafb;
+  color: #1f2937;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* ------------ UTILITIES ------------ */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.75rem;
+}
+
+/* =======================================================
+   HEADER — Sleek, Fixed & Transparent
+   ======================================================= */
+.site-header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* LOGO + BRAND */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand .logo a {
+  text-decoration: none;
+  color: #1e40af;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.brand .tag {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* NAVIGATION */
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #1f2937;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #2563eb;
+}
+
+/* Mobile Nav */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #1f2937;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Open State */
+.nav-open .main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #fff;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================================================
+   HERO SECTION — Responsive Left-Right Layout
+   ======================================================= */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+.hero-section .hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease;
+}
+
+.hero-section .hero-image:hover {
+  transform: scale(1.03);
+}
+
+.hero-section .hero-text {
+  flex: 1 1 45%;
+  padding: 2rem;
+}
+
+.hero-section .hero-image-container {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 2rem; /* More breathing space for mobile headers */
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* =======================================================
+   BUTTONS (same as before)
+   ======================================================= */
+
+.hero-buttons {
+  display: flex;
+  justify-content: center; /* ✅ Centers buttons horizontally */
+  align-items: center;
+  gap: 1rem; /* space between buttons */
+  margin-top: 1.5rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 2px solid #2563eb;
+  color: #2563eb;
+}
+
+.btn-secondary:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* =======================================================
+   SECTIONS
+   ======================================================= */
+section {
+  padding: 5rem 1rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #111827;
+}
+
+/* ------------ WHY CHOOSE US ------------ */
+section.bg-white .p-6 {
+  background: #f9fafb;
+  text-align: center;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+section.bg-white .p-6:hover {
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------ CARDS ------------ */
+.card,
+.bg-white.rounded-2xl {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.bg-white.rounded-2xl:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------ GRID UTILITIES ------------ */
+.grid,
+.grid-sm {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-sm {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* =======================================================
+   TESTIMONIALS
+   ======================================================= */
+section.bg-blue-600 {
+  background: #2563eb;
+  color: #fff;
+}
+
+blockquote {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-style: italic;
+}
+
+blockquote footer {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  font-style: normal;
+}
+
+/* =======================================================
+   GALLERY
+   ======================================================= */
+.gallery img,
+section.bg-white .overflow-hidden img {
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover,
+section.bg-white .overflow-hidden:hover img {
+  transform: scale(1.05);
+}
+
+/* =======================================================
+   FOOTER (Sticky & Responsive)
+   ======================================================= */
+.site-footer {
+  background: #111827;
+  color: #d1d5db;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  margin-top: auto; /* This ensures footer sticks at bottom */
+  border-top: 1px solid #1f2937;
+}
+
+.site-footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* =======================================================
+   FLASH MESSAGES
+   ======================================================= */
+.flashes {
+  list-style: none;
+  margin: 1rem auto;
+  padding: 0;
+  max-width: 600px;
+}
+
+.flash {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+}
+
+.flash.success { background: #16a34a; }
+.flash.error { background: #dc2626; }
+.flash.info { background: #2563eb; }
+
+/* =======================================================
+   RESPONSIVE
+   ======================================================= */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .hero-section {
+    padding: 5rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .site-footer {
+    font-size: 0.9rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* =======================================================
+   MOTORCARE — SERVICES PAGE (Polished v2.1)
+   ======================================================= */
+
+.services-section {
+  padding: 8rem 1rem 5rem; /* extra top space so it's clear under header */
+  background: #f3f4f6;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- TITLE --- */
+.services-section h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 3rem;
+  position: relative;
+  letter-spacing: -0.5px;
+}
+
+.services-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #2563eb;
+  border-radius: 999px;
+}
+
+/* --- GRID LAYOUT --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- CARD --- */
+.services-grid .card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-grid .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+}
+
+/* --- CARD CONTENT --- */
+.services-grid .card h3 {
+  font-size: 1.25rem;
+  color: #1e40af;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.services-grid .card p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  margin: 0.35rem 0;
+  line-height: 1.5;
+}
+
+/* --- PRICE LINE (highlighted) --- */
+.services-grid .card p:nth-child(5) {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* --- LINKS --- */
+.services-grid .card p a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.services-grid .card p a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .services-section {
+    padding: 7rem 1rem 4rem;
+  }
+  .services-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section h2 {
+    font-size: 1.75rem;
+  }
+  .services-grid {
+    gap: 1.5rem;
+  }
+  .services-grid .card {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* --- OPTIONAL: subtle gradient background for polish --- */
+.services-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.02), rgba(0, 0, 0, 0.02));
+  z-index: -1;
+}
+
+/* ============================================
+   BOOKING PAGE LAYOUT
+============================================ */
+.booking-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+/* ============================================
+   BOOKING FORM STYLING
+============================================ */
+.form-section {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  padding: 3rem 3rem;
+  border: 1px solid #f1f5f9;
+  max-width: 1100px; /* Increased width */
+  min-height: 700px;
+  margin: 0 auto 3rem auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.form-section h2,
+.form-section h3 {
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 1.8rem;
+  color: #0b0f1a;
+  letter-spacing: -0.3px;
+}
+
+/* --- Field Row Layout --- */
+.form-section .form-group,
+.form-section .mb-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* --- Labels --- */
+.form-section label {
+  font-weight: 600;
+  color: #0f172a;
+  flex: 0 0 200px;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+/* --- Inputs --- */
+.form-section input,
+.form-section textarea,
+.form-section select {
+  flex: 1;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  background-color: #fafafa;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-section input:focus,
+.form-section textarea:focus,
+.form-section select:focus {
+  border-color: #0b5ed7;
+  box-shadow: 0 0 0 3px rgba(11, 94, 215, 0.1);
+  outline: none;
+  background-color: #fff;
+}
+
+.form-section textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* --- Divider --- */
+.form-section hr {
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  margin: 1.5rem 0;
+}
+
+/* ============================================
+   RESPONSIVE (FORM)
+============================================ */
+@media (max-width: 768px) {
+  .form-section {
+    padding: 1.5rem 1.4rem;
+    margin: 1rem;
+  }
+
+  .form-section .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-section label {
+    text-align: left;
+    margin-bottom: 0.3rem;
+  }
+
+  .form-section button {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   SELECTED SERVICES BOX
+============================================ */
+.selected-services-box {
+  flex: 1 1 35%;
+  max-height: 600px;
+  overflow-y: auto;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e6e9ee;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.selected-services-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-services-box li {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #333;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.selected-services-box li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   SERVICE POPUP
+============================================ */
+.service-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1050;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.service-popup.show {
+  display: flex !important;
+  opacity: 1;
+}
+
+.service-popup-content {
+  background: #fff;
+  border-radius: 14px;
+  padding: 25px;
+  width: 95%;
+  max-width: 540px;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: popIn 0.3s ease;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.service-card:hover {
+  background-color: #eef6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* wrap text center */
+.service-card .text {
+  flex: 1;
+  text-align: center;
+}
+
+.service-card .text h6 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.service-card .text small {
+  display: block;
+  color: #6b7280;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+/* Checkbox */
+.service-card .form-check-input,
+.service-card input[type="checkbox"] {
+  transform: scale(1.15);
+  accent-color: #0b5ed7;
+  cursor: pointer;
+}
+
+/* Disable body scroll when popup open */
+body.popup-open {
+  overflow: hidden;
+}
+
+/* ============================================
+   SEARCH BAR
+============================================ */
+#serviceSearch {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#serviceSearch:focus {
+  border-color: #0b5ed7;
+  box-shadow: 0 0 0 3px rgba(11, 94, 215, 0.1);
+  outline: none;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+#openServicePopup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  border: 1.5px solid #0b5ed7;
+  background: transparent;
+  color: #0b5ed7;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 6px 18px rgba(11, 94, 215, 0.08);
+}
+
+#openServicePopup:hover {
+  transform: translateY(-2px);
+  background: rgba(11, 94, 215, 0.06);
+  box-shadow: 0 8px 22px rgba(11, 94, 215, 0.1);
+}
+
+#openServicePopup:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(11, 94, 215, 0.1);
+}
+
+#openServicePopup:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(11, 94, 215, 0.12);
+}
+
+#confirmServiceSelection,
+#cancelServicePopup {
+  min-width: 100px;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+#confirmServiceSelection {
+  background: linear-gradient(90deg, #0b5ed7, #0b84ff);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 20px rgba(11, 94, 215, 0.12);
+}
+
+#confirmServiceSelection:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(11, 94, 215, 0.15);
+}
+
+#cancelServicePopup {
+  background: #fff;
+  border: 1px solid #e6e9ee;
+}
+
+#cancelServicePopup:hover {
+  background: #f9fafb;
+}
+
+/* ============================================
+   SELECTED SERVICES INLINE BOX
+============================================ */
+#selectedServicesBox {
+  min-height: 3.2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  border: 1px solid #e6e9ee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  color: #111827;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: box-shadow 0.2s ease;
+}
+
+#selectedServicesBox:focus-within {
+  border-color: #0b5ed7;
+  box-shadow: 0 0 0 3px rgba(11, 94, 215, 0.1);
+}
+
+#selectedServicesBox.empty {
+  color: #0055ff;
+  font-style: italic;
+}
+
+/* Service Chip */
+.selected-service-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffffff, #f7fbff);
+  border: 1px solid rgba(11, 94, 215, 0.12);
+  box-shadow: 0 2px 6px rgba(11, 94, 215, 0.04);
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.selected-service-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(11, 94, 215, 0.08);
+}
+
+/* Remove Button */
+.selected-service-chip .remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.15s ease;
+}
+
+.selected-service-chip .remove:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   SUCCESS POPUP
+============================================ */
+.booking-success-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+.booking-success-content {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.4s ease;
+}
+
+/* Checkmark Animation */
+.checkmark-circle {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  display: inline-block;
+}
+
+.checkmark-circle .checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 4;
+  stroke: #28a745;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0 0 0 #28a745;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+  position: relative;
+}
+
+.checkmark.draw:after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 40px;
+  width: 12px;
+  height: 24px;
+  border-right: 4px solid #28a745;
+  border-bottom: 4px solid #28a745;
+  transform: rotate(45deg);
+  animation: drawCheck 0.5s ease forwards 0.5s;
+}
+
+/* ============================================
+   ANIMATIONS
+============================================ */
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes drawCheck {
+  from { opacity: 0; height: 0; }
+  to { opacity: 1; height: 24px; }
+}
+
+@keyframes fill {
+  to { box-shadow: inset 0 0 0 80px #fff; }
+}
+
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS (GLOBAL)
+============================================ */
+@media (max-width: 768px) {
+  .booking-flex {
+    flex-direction: column;
+  }
+
+  .selected-services-box {
+    order: 2;
+    padding: 1.25rem;
+  }
+
+  #openServicePopup {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #selectedServicesBox {
+    min-height: 3.6rem;
+  }
+
+  .service-popup .service-popup-content {
+    width: 96%;
+    max-width: 720px;
+    padding: 1rem;
+  }
+}

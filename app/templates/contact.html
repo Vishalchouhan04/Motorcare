@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Contact - MotorCare{% endblock %}
+{% block content %}
+<h2>Contact Us</h2>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <label>{{ form.name.label }}{{ form.name() }}</label>
+  <label>{{ form.email.label }}{{ form.email() }}</label>
+  <label>{{ form.message.label }}{{ form.message() }}</label>
+  <button type="submit">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}

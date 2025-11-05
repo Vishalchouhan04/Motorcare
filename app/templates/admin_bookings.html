@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Bookings - Admin{% endblock %}
+{% block content %}
+<h2>Bookings</h2>
+<p><a href="{{ url_for('admin.export_bookings') }}">Export CSV</a></p>
+<table class="table">
+  <thead>
+    <tr><th>ID</th><th>Customer</th><th>Phone</th><th>Date</th><th>Time</th><th>Services</th><th>Status</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    {% for b in bookings %}
+    <tr>
+      <td>{{ b.id }}</td>
+      <td>{{ b.customer_name }}</td>
+      <td>{{ b.phone }}</td>
+      <td>{{ b.date }}</td>
+      <td>{{ b.time_slot }}</td>
+      <td>{{ b.services|map(attribute='name')|join(', ') }}</td>
+      <td>{{ b.status }}</td>
+      <td>
+        <form method="post" action="{{ url_for('admin.change_status', booking_id=b.id) }}">
+          <select name="status">
+            {% for s in ['Pending','Confirmed','In-Progress','Completed','Cancelled'] %}
+              <option value="{{ s }}" {% if s==b.status %}selected{% endif %}>{{ s }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit">Update</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

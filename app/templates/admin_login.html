@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Admin Login - MotorCare{% endblock %}
+{% block content %}
+<h2>Admin Login</h2>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <label>{{ form.username.label }}{{ form.username() }}</label>
+  <label>{{ form.password.label }}{{ form.password() }}</label>
+  <button type="submit">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}

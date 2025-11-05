@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Book a Service - MotorCare{% endblock %}
+
+{% block content %}
+<div class="container mx-auto my-10 max-w-2xl p-6 bg-white rounded-2xl shadow-md">
+  <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Book a Two-Wheeler Service</h2>
+
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="mb-4">
+        {% for category, message in messages %}
+          <div class="p-3 rounded-md text-white mb-2
+                      {% if category == 'success' %}bg-green-600{% elif category == 'error' %}bg-red-600{% else %}bg-blue-600{% endif %}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Booking Form -->
+  <form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+
+    <div class="mb-4">
+      {{ form.customer_name.label(class="block text-gray-700 font-semibold mb-1") }}
+      {{ form.customer_name(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+      {% for error in form.customer_name.errors %}
+        <span class="text-red-500 text-sm">{{ error }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="mb-4">
+      {{ form.phone.label(class="block text-gray-700 font-semibold mb-1") }}
+      {{ form.phone(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+      {% for error in form.phone.errors %}
+        <span class="text-red-500 text-sm">{{ error }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="mb-4">
+      {{ form.email.label(class="block text-gray-700 font-semibold mb-1") }}
+      {{ form.email(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+      {% for error in form.email.errors %}
+        <span class="text-red-500 text-sm">{{ error }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="mb-4">
+      {{ form.vehicle_model.label(class="block text-gray-700 font-semibold mb-1") }}
+      {{ form.vehicle_model(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+    </div>
+
+    <div class="mb-4">
+      {{ form.registration_no.label(class="block text-gray-700 font-semibold mb-1") }}
+      {{ form.registration_no(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+    </div>
+
+    <div class="mb-4">
+      {{ form.services.label(class="block text-gray-700 font-semibold mb-1") }}
+      {{ form.services(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400", size=5) }}
+      <p class="text-gray-500 text-sm">Hold Ctrl (Cmd on Mac) to select multiple services.</p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        {{ form.date.label(class="block text-gray-700 font-semibold mb-1") }}
+        {{ form.date(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+      </div>
+      <div>
+        {{ form.time_slot.label(class="block text-gray-700 font-semibold mb-1") }}
+        {{ form.time_slot(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+      </div>
+    </div>
+
+    <div class="mb-4 mt-4">
+      {{ form.notes.label(class="block text-gray-700 font-semibold mb-1") }}
+      {{ form.notes(class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400") }}
+    </div>
+
+    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+      Submit Booking
+    </button>
+  </form>
+</div>
+{% endblock %}
